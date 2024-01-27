@@ -11,6 +11,10 @@ import java.util.List;
 
 public class GameManager {
 
+    private static final int GAME_CLEAR_STRIKE_COUNT = 3;
+    private static final int GAME_RESTART_NUMBER = 1;
+    private static final int GAME_END_NUMBER = 2;
+
     private final InputView inputView;
     private final OutputView outputView;
     private Referee referee;
@@ -42,7 +46,7 @@ public class GameManager {
             int ball = referee.getBallCount();
             outputView.printStrikeAndBallCountView(strike, ball);
 
-            if (strike == 3) {
+            if (strike == GAME_CLEAR_STRIKE_COUNT) {
                 break;
             }
         }
@@ -51,11 +55,11 @@ public class GameManager {
     private void checkEndOrRestart() {
         String endOption = inputView.readEndOptionView();
         int endOptionNumber = Converter.inputToInt(endOption);
-        if (endOptionNumber < 1 || endOptionNumber > 2) {
+        if (endOptionNumber < GAME_RESTART_NUMBER || endOptionNumber > GAME_END_NUMBER) {
             throw new IllegalArgumentException("1또는 2를 입력하지 않았습니다.");
         }
 
-        if (endOptionNumber == 1) {
+        if (endOptionNumber == GAME_RESTART_NUMBER) {
             gameStart();
         }
     }
