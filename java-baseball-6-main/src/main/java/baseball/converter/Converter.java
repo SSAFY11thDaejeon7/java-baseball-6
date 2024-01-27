@@ -7,7 +7,7 @@ public class Converter {
 
     private static final int NUMBERS_SIZE = 3;
 
-    public List<Integer> inputToNumbers(String input) {
+    public static List<Integer> inputToNumbers(String input) {
         List<Integer> numbers = new ArrayList<>();
 
         for (char number : input.toCharArray()) {
@@ -15,5 +15,13 @@ public class Converter {
         }
 
         return numbers;
+    }
+
+    public static int inputToInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("올바른 숫자를 입력하지 않았습니다.");
+        }
     }
 }
