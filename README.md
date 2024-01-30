@@ -5,8 +5,11 @@
 - 풀다 막히면 Github에 올라온 제출물들 보거나 GPT 사용하고 푸셔도 괜찮습니다.
 - 아래 요구사항 꼼꼼히 읽어보시고 fork 하는 방법도 읽어주세요. ( 각자 branch 파주셔야합니다. )
 
-## 참고하면 좋은 자료
+## 풀이전 스터디장이 추천하는 자료
+- Java 상수와 enum : https://youtu.be/AWEvmFs7RJ4?si=QgzYtYodoQ-NMZiN
+- Java StringJoiner : https://futurecreator.github.io/2018/06/02/java-string-joiner/
 - 향로 일급컬렉션, https://jojoldu.tistory.com/412
+- TDD 법칙 : https://github.com/Yooii-Studios/Clean-Code/blob/master/Chapter%2009%20-%20%EB%8B%A8%EC%9C%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8.md
 
 그럼 파이팅!!
 <br><br>
