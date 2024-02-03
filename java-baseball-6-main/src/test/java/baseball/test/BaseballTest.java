@@ -32,4 +32,26 @@ public class BaseballTest {
         // Then
         assertEquals(1, strikeCount, "Expected 1 strike");
     }
+
+    @Test
+    public void 볼_개수_체크(){
+        // Given
+        List<Integer> originalList = new ArrayList<>();
+        originalList.add(1);
+        originalList.add(2);
+        originalList.add(3);
+
+        Baseballs baseballs = new Baseballs(originalList);
+
+        List<Integer> guessList = new ArrayList<>();
+        guessList.add(1);
+        guessList.add(3);
+        guessList.add(2);
+
+        // When
+        int strikeCount = baseballs.getBallCount(guessList);
+
+        // Then
+        assertEquals(2, strikeCount, "Expected 1 strike");
+    }
 }

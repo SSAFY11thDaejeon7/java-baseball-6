@@ -42,4 +42,21 @@ public class Baseballs {
 
         return strikeCount;
     }
+
+    public int getBallCount(List<Integer> numbers) {
+        int ballCount = 0;
+        List<Integer> ballNumbers = new ArrayList<>();
+        for(int i = 0 ; i <3 ; i++){
+            ballNumbers.add(baseballList.get(i).getNumber());
+        }
+
+        for (int i = 0; i < 3; i++) {
+
+            if (ballNumbers.contains(numbers.get(i)) && ballNumbers.get(i) != numbers.get(i)){
+                ballCount += 1;
+            }
+        }
+
+        return ballCount;
+    }
 }
