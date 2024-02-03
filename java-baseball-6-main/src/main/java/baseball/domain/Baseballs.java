@@ -59,4 +59,18 @@ public class Baseballs {
 
         return ballCount;
     }
+
+    public boolean isNothing(List<Integer> numbers) {
+        List<Integer> ballNumbers = new ArrayList<>();
+        for(int i = 0 ; i <3 ; i++){
+            ballNumbers.add(baseballList.get(i).getNumber());
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (ballNumbers.contains(numbers.get(i))){
+                return false;
+            }
+        }
+        return true;
+    }
 }
