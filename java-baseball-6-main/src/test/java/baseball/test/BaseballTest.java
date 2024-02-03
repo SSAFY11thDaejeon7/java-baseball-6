@@ -2,10 +2,7 @@ package baseball.test;
 
 import baseball.domain.Baseballs;
 import baseball.service.BaseballService;
-import baseball.util.RandomNumbersGenerator;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -53,7 +50,8 @@ public class BaseballTest {
         assertEquals("2볼 1스트라이크", hintMessage, "Expected hint message: 1스트라이크");
     }
 
-    @Test void 정답_3스트라이크(){
+    @Test
+    void 정답_3스트라이크(){
         Baseballs computerNumber = new Baseballs(Arrays.asList(1, 2, 3));
         List<Integer> numbers = Arrays.asList(1, 2, 3);
 
