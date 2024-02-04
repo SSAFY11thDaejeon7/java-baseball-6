@@ -31,6 +31,7 @@ public class BaseballService {
 
         return hintMsg;
     }
+
     public void appendBallCount(StringBuilder hintMsg, int ballCount) {
         if (ballCount > 0) {
             hintMsg.append(ballCount).append(Message.BALL);

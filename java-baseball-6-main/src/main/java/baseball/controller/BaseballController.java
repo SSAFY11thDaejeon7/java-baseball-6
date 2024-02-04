@@ -15,16 +15,17 @@ public class BaseballController {
     private final BaseballService baseballService;
     private boolean stopGame = false;
 
-    public BaseballController(){
-        baseballService =  new BaseballService();
+    public BaseballController() {
+        baseballService = new BaseballService();
         baseballGame = new Baseballs(RandomNumbersGenerator.randomNumberGenerator());
     }
+
     public void run() {
         System.out.println(Message.START_GAME_MESSAGE);
         playGame();
     }
 
-    public void playGame(){
+    public void playGame() {
         while (!stopGame) {
             List<Integer> userInput = InputView.gameInput();
             Validation.verifyException(userInput);

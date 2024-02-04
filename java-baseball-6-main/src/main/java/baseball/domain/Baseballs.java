@@ -17,7 +17,7 @@ public class Baseballs {
     }
 
 
-    private Baseball createBaseball(Integer number){
+    private Baseball createBaseball(Integer number) {
         return new Baseball(number);
     }
 
@@ -33,7 +33,7 @@ public class Baseballs {
         return resultList;
     }
 
-    public int getStrikeCount(List<Integer> numbers){
+    public int getStrikeCount(List<Integer> numbers) {
         int strikeCount = 0;
         for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
 
@@ -48,13 +48,13 @@ public class Baseballs {
     public int getBallCount(List<Integer> numbers) {
         int ballCount = 0;
         List<Integer> ballNumbers = new ArrayList<>();
-        for(int i = 0 ; i <Constants.NUMBER_OF_BASEBALL ; i++){
+        for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
             ballNumbers.add(baseballList.get(i).getNumber());
         }
 
         for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
 
-            if (ballNumbers.contains(numbers.get(i)) && ballNumbers.get(i) != numbers.get(i)){
+            if (ballNumbers.contains(numbers.get(i)) && ballNumbers.get(i) != numbers.get(i)) {
                 ballCount += 1;
             }
         }
@@ -64,12 +64,12 @@ public class Baseballs {
 
     public boolean isNothing(List<Integer> numbers) {
         List<Integer> ballNumbers = new ArrayList<>();
-        for(int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++){
+        for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
             ballNumbers.add(baseballList.get(i).getNumber());
         }
 
         for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
-            if (ballNumbers.contains(numbers.get(i))){
+            if (ballNumbers.contains(numbers.get(i))) {
                 return false;
             }
         }
