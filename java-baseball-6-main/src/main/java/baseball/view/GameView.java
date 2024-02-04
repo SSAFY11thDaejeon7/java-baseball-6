@@ -29,7 +29,11 @@ public class GameView {
             System.out.println(hint);
             return true;
         }
-        System.out.println("낫싱");
+        if (hint.equals("")) {
+            System.out.println("낫싱");
+        } else {
+            System.out.println(hint);
+        }
         return false;
     }
 
