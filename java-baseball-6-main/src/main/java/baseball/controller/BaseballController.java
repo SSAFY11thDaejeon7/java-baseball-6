@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.constant.Constants;
 import baseball.domain.Baseballs;
 import baseball.service.BaseballService;
 import baseball.util.RandomNumbersGenerator;
@@ -40,10 +41,10 @@ public class BaseballController {
             int gameType = InputView.endGame();
             Validation.invalidGame(gameType);
 
-            if (gameType == 1) {
+            if (gameType == Constants.GAME_RESTART) {
                 baseballGame = new Baseballs(RandomNumbersGenerator.randomNumberGenerator());
             }
-            if (gameType == 2) {
+            if (gameType == Constants.GAME_END) {
                 stopGame = true;
             }
         }
