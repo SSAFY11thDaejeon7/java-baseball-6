@@ -9,6 +9,10 @@ public class OutputView {
     public static void printBallStrikeMessage(){
         System.out.print("볼 ");
     }
+    
+    public static void printBallMessage() {
+        System.out.println("볼");
+    }
 
     public static void printStrikeMessage(){
         System.out.println("스트라이크");
@@ -22,7 +26,7 @@ public class OutputView {
         System.out.print(count);
     }
 
-    public static void printGameSetMessage(){
+    public static void printGameVictoryMessage(){
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
 }
