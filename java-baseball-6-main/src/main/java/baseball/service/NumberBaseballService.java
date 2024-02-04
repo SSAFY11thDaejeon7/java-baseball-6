@@ -9,6 +9,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class NumberBaseballService {
 
@@ -32,14 +33,32 @@ public class NumberBaseballService {
         return numbers;
     }
 
-    public ResultDTO getChallengeResult(String inputNumbers){
+    public ResultDTO getChallengeResult(String inputNumbers) {
         List<Integer> numbers = transferToIntegerList(inputNumbers);
         List<Integer> lottoNumbers = lottoNumberRepository.getLottoNumber().getNumbers();
-        int strike = (int) numbers.stream()
-                .filter(lottoNumbers::contains)
+
+        int strike = (int)IntStream.range(0, Constant.GAME_NUMBERS_SIZE)
+                .filter(i -> numbers.get(i).equals(lottoNumbers.get(i)))
                 .count();
-        int ball = numbers.size() - strike;
-        return new ResultDTO(strike,ball);
+        int ball = (int)IntStream.range(0, Constant.GAME_NUMBERS_SIZE)
+                .filter(i -> !numbers.get(i).equals(lottoNumbers.get(i)) && lottoNumbers.contains(numbers.get(i)))
+                .count();
+
+        return new ResultDTO(strike, ball);
+    }
+
+    public boolean isEnd(ResultDTO resultDTO){
+        if ( resultDTO.getStrike() == 3 ){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isGameExit(String number){
+        NumberValidator.validateIsNumber(number);
+        NumberValidator.validateIsCorrectNumber(number);
+        if ( number.equals("1") ) return false;
+        return true;
     }
 
     public List<Integer> transferToIntegerList(String inputNumbers){
