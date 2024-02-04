@@ -9,6 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
+
+    Valid valid = Valid.getInstance();
+
     @Test
     void 게임종료_후_재시작() {
         assertRandomNumberInRangeTest(
@@ -31,5 +34,39 @@ class ApplicationTest extends NsTest {
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+    @Test
+    void 예외_1에서_9가_아닌_수_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("012"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_중복인_수_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("111"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_숫자가_아닌_입력값_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("wer"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_1에서_2가_아닌_수_테스트() {
+        assertThat(valid.isReset("0")).isFalse();
+    }
+
+    @Test
+    void 예외_수가_아닌_테스트() {
+        assertThat(valid.isReset("sdf")).isFalse();
     }
 }
