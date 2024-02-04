@@ -1,5 +1,6 @@
 package baseball.util;
 
+import baseball.constant.Constants;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class RandomNumbersGenerator {
 
     public static List<Integer> randomNumberGenerator() {
         List<Integer> computer = new ArrayList<>();
-        while (computer.size() < 3) {
+        while (computer.size() < Constants.NUMBER_OF_BASEBALL) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (!computer.contains(randomNumber)) {
                 computer.add(randomNumber);

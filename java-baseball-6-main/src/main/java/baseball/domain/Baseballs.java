@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import baseball.constant.Constants;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +35,7 @@ public class Baseballs {
 
     public int getStrikeCount(List<Integer> numbers){
         int strikeCount = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
 
             if (baseballList.get(i).getNumber() == numbers.get(i)) {
                 strikeCount += 1;
@@ -46,11 +48,11 @@ public class Baseballs {
     public int getBallCount(List<Integer> numbers) {
         int ballCount = 0;
         List<Integer> ballNumbers = new ArrayList<>();
-        for(int i = 0 ; i <3 ; i++){
+        for(int i = 0 ; i <Constants.NUMBER_OF_BASEBALL ; i++){
             ballNumbers.add(baseballList.get(i).getNumber());
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
 
             if (ballNumbers.contains(numbers.get(i)) && ballNumbers.get(i) != numbers.get(i)){
                 ballCount += 1;
@@ -62,11 +64,11 @@ public class Baseballs {
 
     public boolean isNothing(List<Integer> numbers) {
         List<Integer> ballNumbers = new ArrayList<>();
-        for(int i = 0 ; i <3 ; i++){
+        for(int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++){
             ballNumbers.add(baseballList.get(i).getNumber());
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_BASEBALL; i++) {
             if (ballNumbers.contains(numbers.get(i))){
                 return false;
             }

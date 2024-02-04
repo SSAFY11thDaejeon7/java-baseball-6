@@ -34,7 +34,7 @@ public class BaseballController {
 
     private Baseballs manageGameResult(Baseballs baseballGame, List<Integer> userInput) {
         if (baseballService.isCorrect(baseballGame, userInput)) {
-            int gameType = OutputView.endGame();
+            int gameType = InputView.endGame();
             //validateGameCode(gameType);
 
             if (gameType == 1) {
