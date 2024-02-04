@@ -14,7 +14,8 @@ public class Validator {
     public final static String INPUT_SIZE_ERROR = "입력의 길이는 3자리여야 합니다.";
     public final static String INPUT_TYPE_ERROR = "입력은 0을 제외한 숫자만 가능합니다.";
     public final static String INPUT_DUPLICATION_ERROR = "입력은 서로 다른 숫자만 가능합니다.";
-
+    public final static String REPLAY = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+    public final static String REPLAY_TYPE_ERROR = "입력은 1 또는 2만 가능합니다.";
 
 
     public static List<Integer> inputValidationCheck() {
@@ -54,5 +55,17 @@ public class Validator {
         return result;
     }
 
+    public static boolean replayValidationCheck() {
+        System.out.println(REPLAY);
+        String input = Console.readLine();
+        if (!input.equals("1") && !input.equals("2")) {
+            throw new IllegalArgumentException(REPLAY_TYPE_ERROR);
+        }
 
+        if (input.equals("1"))
+            return true;
+
+        return false;
+
+    }
 }
