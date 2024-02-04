@@ -3,6 +3,7 @@ package baseball.controller;
 import baseball.domain.Baseballs;
 import baseball.service.BaseballService;
 import baseball.util.RandomNumbersGenerator;
+import baseball.validation.Validation;
 import baseball.view.InputView;
 import baseball.view.Message;
 import baseball.view.OutputView;
@@ -26,6 +27,7 @@ public class BaseballController {
     public void playGame(){
         while (!stopGame) {
             List<Integer> userInput = InputView.gameInput();
+            Validation.verifyException(userInput);
             String hintMessage = baseballService.createHintMessage(baseballGame, userInput);
             OutputView.printHintMessage(hintMessage);
             baseballGame = manageGameResult(baseballGame, userInput);
@@ -35,7 +37,7 @@ public class BaseballController {
     private Baseballs manageGameResult(Baseballs baseballGame, List<Integer> userInput) {
         if (baseballService.isCorrect(baseballGame, userInput)) {
             int gameType = InputView.endGame();
-            //validateGameCode(gameType);
+            Validation.invalidGame(gameType);
 
             if (gameType == 1) {
                 baseballGame = new Baseballs(RandomNumbersGenerator.randomNumberGenerator());

@@ -8,7 +8,7 @@ import java.util.List;
 public class InputView {
 
     public static List<Integer> gameInput() {
-        System.out.println(Message.NUMERIC_INPUT_MESSAGE);
+        System.out.print(Message.NUMERIC_INPUT_MESSAGE);
         String str = Console.readLine();
         return Baseballs.changeStrToList(str);
     }

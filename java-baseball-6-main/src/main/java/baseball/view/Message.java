@@ -8,5 +8,7 @@ public class Message {
     public static final String NOTHING = "낫싱";
     public static final String STRIKE = "스트라이크";
     public static final String BALL = "볼";
-
+    public static final String INVALID_INPUT_MESSAGE = "숫자는 3자리로 입력해야합니다.";
+    public static final String DUPLICATE_NUM = "같은 숫자 입력은 안됩니다.";
+    public static final String INVALID_GAME_NUMBER = "1(Start) 또는 2(End)로 입력해야합니다.";
 }
